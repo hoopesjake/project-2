@@ -1,0 +1,120 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f2f2f2;
+}
+
+header {
+    background-color: darkred;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid darkred;
+    font-family:'Courier New', Courier, monospace
+}
+
+header h1 {
+    color: #fff;
+    font-size: 36px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+nav ul {
+    list-style-type: none;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #ff0000;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 50% 1fr;
+    grid-template-rows: repeat(8, 1fr);
+    gap: 20px;
+    padding: 20px;
+    text-align: center;
+    font-size: 2rem;
+}
+
+.company-title {
+    grid-column: 2 / span 1;
+    grid-row: 1 / span 2;
+    font-size: 4rem;
+}
+
+.company-introduction {
+    grid-column: 2 / span 1;
+    grid-row: 3 / span 2;
+}
+
+.news {
+    grid-column: 2 / span 1;
+    grid-row: 5 / span 1;
+}
+
+.stats {
+    grid-column: 2 / span 1;
+    grid-row: 6 / span 1;
+}
+
+.statline-of-the-day {
+    grid-column: 2 / span 1;
+    grid-row: 7 / span 2;
+}
+
+.product-ad1 {
+    grid-column: 3 / span 1;
+    grid-row: 1 / span 4;
+}
+
+.product-ad2 {
+    grid-column: 3 / span 1;
+    grid-row: 5 / span 4;
+}
+
+.sponsor-ad1 {
+    grid-column: 1 / span 1;
+    grid-row: 1 / span 4;
+}
+
+.sponsor-ad2 {
+    grid-column: 1 / span 1;
+    grid-row: 5 / span 4;
+}
+
+section, aside {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+section h2, aside h2, section h1{
+    color: darkred;
+    text-transform: uppercase;
+    font-family:'Courier New', Courier, monospace
+}
+
+.sponsor-ads, .product-ads {
+    background-color: #f9f9f9;
+}
