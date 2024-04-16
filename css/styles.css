@@ -12,19 +12,12 @@ body {
 
 header {
     background-color: darkred;
-    padding: 20px;
+    padding: 0px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     border-bottom: 2px solid darkred;
-    font-family:'Courier New', Courier, monospace
-}
-
-header h1 {
-    color: #fff;
-    font-size: 36px;
-    font-weight: bold;
-    text-transform: uppercase;
+    font-family: 'Courier New', Courier, monospace;
 }
 
 nav ul {
@@ -40,10 +33,31 @@ nav ul li a {
     color: #fff;
     text-decoration: none;
     transition: color 0.3s ease;
+    font-size: 1.8rem;
+    font-weight: bold;
 }
 
 nav ul li a:hover {
     color: #ff0000;
+}
+
+a:hover .hooplay-logo-small {
+    opacity: .5;
+}
+
+.hooplay-logo {
+    max-width: 70%;
+    height: auto;
+    object-fit: contain;
+    max-height: 600px;
+    outline: 2px solid white;
+}
+
+.hooplay-logo-small {
+    display: block;
+    width: 10rem;
+    height: auto;
+    transition: opacity 0.3s ease;
 }
 
 .container {
@@ -54,67 +68,236 @@ nav ul li a:hover {
     padding: 20px;
     text-align: center;
     font-size: 2rem;
+    position: relative;
 }
 
 .company-title {
     grid-column: 2 / span 1;
     grid-row: 1 / span 2;
-    font-size: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    max-width: 100%;
+    height: 500px;
+    background-color: darkred;
+    position: relative;
 }
 
 .company-introduction {
     grid-column: 2 / span 1;
-    grid-row: 3 / span 2;
+    grid-row: 3 / span 1;
+    margin-bottom: 0px;
 }
 
 .news {
     grid-column: 2 / span 1;
-    grid-row: 5 / span 1;
+    grid-row: 4 / span 1;
+    margin-top: 10px
 }
 
 .stats {
     grid-column: 2 / span 1;
-    grid-row: 6 / span 1;
+    grid-row: 5 / span 1;
+    margin-top: 10px;
 }
 
 .statline-of-the-day {
     grid-column: 2 / span 1;
-    grid-row: 7 / span 2;
+    grid-row: 6 / span 2;
+    margin-top: 10px;
 }
 
-.product-ad1 {
+
+
+
+/* Search bar styles */
+#searchResultsPlayer {
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+}
+
+#searchResultsPlayer h3 {
+    color: darkred;
+    font-size: 44px;
+    margin-bottom: 10px;
+}
+
+#searchResultsPlayer p {
+    margin-bottom: 8px;
+}
+
+#searchResultsPlayer strong {
+    font-weight: bold;
+}
+
+#searchResultsPlayer.not-found {
+    color: darkred;
+    font-style: italic;
+}
+
+#searchResultsTeam {
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+}
+
+#searchResultsTeam h3 {
+    color: darkred;
+    font-size: 44px;
+    margin-bottom: 10px;
+}
+
+#searchResultsTeam p {
+    margin-bottom: 8px;
+}
+
+#searchResultsTeam strong {
+    font-weight: bold;
+}
+
+#searchResultsTeam.not-found {
+    color: darkred;
+    font-style: italic;
+}
+
+#searchResultsTeam table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+#searchResultsTeam table th,
+#searchResultsTeam table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+#searchResultsTeam table th {
+    background-color: #f2f2f2;
+}
+
+#searchResultsTeam img {
+    margin-top: 10px;
+}
+
+#clearButton {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: darkred;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#clearButton:hover {
+    background-color: rgb(97, 22, 22);
+}
+
+.searchTeam {
     grid-column: 3 / span 1;
     grid-row: 1 / span 4;
 }
 
-.product-ad2 {
-    grid-column: 3 / span 1;
-    grid-row: 5 / span 4;
-}
-
-.sponsor-ad1 {
+.searchPlayer {
     grid-column: 1 / span 1;
     grid-row: 1 / span 4;
 }
 
-.sponsor-ad2 {
-    grid-column: 1 / span 1;
-    grid-row: 5 / span 4;
-}
-
-section, aside {
+section,
+aside {
     background-color: #fff;
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-section h2, aside h2, section h1{
+
+
+section h2,
+aside h2,
+section h1 {
     color: darkred;
     text-transform: uppercase;
-    font-family:'Courier New', Courier, monospace
+    font-family: 'Courier New', Courier, monospace
 }
 
-.sponsor-ads, .product-ads {
+.sponsor-ads,
+.product-ads,
+.searchTeam,
+.searchPlayer {
     background-color: #f9f9f9;
+}
+
+.scroller-container {
+    width: 100%;
+    overflow: hidden;
+}
+
+.scroller {
+    display: flex;
+    gap: 10rem;
+    animation: scroll 150s linear infinite;
+    width: max-content;
+}
+
+.scroller__inner img {
+    width: 100px;
+    height: auto;
+}
+
+.scroller__inner {
+    display: flex;
+    gap: 1rem;
+}
+
+@keyframes scroll {
+    from {
+        transform: translateX(0%);
+    }
+
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+h2 {
+    color: darkred;
+}
+
+label {
+    font-weight: bold;
+    color: darkred;
+}
+
+input[type="text"] {
+    width: 70%;
+    padding: 8px;
+    margin-right: 10px;
+    border: 1px solid darkred;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+button {
+    background-color: darkred;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    color: white;
+    background-color: rgb(97, 22, 22);
 }
