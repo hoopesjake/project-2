@@ -254,4 +254,3 @@ function clearSearchTeam() {
     searchResultsContainerTeam.innerHTML = '';
 }
 
-// dropdown menus
