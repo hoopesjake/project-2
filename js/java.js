@@ -246,6 +246,9 @@ function statOfTheDay(nbaData) {
 
 // dropdown menus
 
+// Initialize a selected players array
+let selectedPlayers = [];
+
 async function toggleDropdown(position) {
     const dropdownContent = document.getElementById(`dropdownItems${position}`);
     const dropdownBtn = document.getElementById(`dropdown${position}`);
@@ -260,18 +263,19 @@ async function toggleDropdown(position) {
             const roster = data[teamName].roster;
             Object.keys(roster).forEach(playerName => {
                 if (roster[playerName].position_abbr === position) {
-                    acc.push(playerName);
+                    acc.push({ name: playerName, position: roster[playerName].position_full });
                 }
             });
             return acc;
         }, []);
 
         dropdownContent.innerHTML = '';
-        players.forEach(playerName => {
+        players.forEach(player => {
             const listItem = document.createElement('li');
             const link = document.createElement('a');
             link.href = '#';
-            link.textContent = playerName;
+            link.textContent = `${player.name}`;
+            link.addEventListener('click', () => addPlayer(player));
             listItem.appendChild(link);
             dropdownContent.appendChild(listItem);
         });
@@ -286,6 +290,27 @@ async function toggleDropdown(position) {
     }
 }
 
+// Function to add a player to the selected list
+function addPlayer(player) {
+    if (selectedPlayers.length < 5) {
+        selectedPlayers.push(player);
+        updateSelectedPlayersDisplay();
+    } else {
+        alert('You can only select up to 5 players.');
+    }
+}
+
+// Function to update the display of selected players
+function updateSelectedPlayersDisplay() {
+    const selectedPlayersSection = document.querySelector('.choose-your-five');
+    selectedPlayersSection.innerHTML = '<h1>Your Starting 5</h1>';
+    selectedPlayers.forEach(player => {
+        const playerInfo = document.createElement('p');
+        playerInfo.textContent = `${player.name} - ${player.position}`;
+        selectedPlayersSection.appendChild(playerInfo);
+    });
+}
+
 window.onclick = function (event) {
     if (!event.target.matches('.dropdown-btn')) {
         const allDropdowns = document.querySelectorAll('.dropdown-content');
@@ -294,5 +319,27 @@ window.onclick = function (event) {
         });
     }
 };
+
+// Function to update the display of selected players
+function updateSelectedPlayersDisplay() {
+    const selectedPlayersSection = document.querySelector('.choose-your-five');
+
+    // Create the header element
+    const header = document.createElement('h4');
+    header.textContent = 'Your Starting 5';
+
+    // Clear existing content and append the header
+    selectedPlayersSection.innerHTML = '';
+    selectedPlayersSection.appendChild(header);
+
+    // Append each selected player info
+    selectedPlayers.forEach(player => {
+        const playerInfo = document.createElement('p');
+        playerInfo.textContent = `${player.name} - ${player.position}`;
+        selectedPlayersSection.appendChild(playerInfo);
+    });
+}
+
+
 
 
