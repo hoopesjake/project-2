@@ -205,9 +205,6 @@ function clearSearchTeam() {
     searchResultsContainerTeam.innerHTML = '';
 }
 
-// dropdown menus
-
-
 // random statline
 fetch('https://alnyb0ty3i.execute-api.us-east-1.amazonaws.com/sportsData')
     .then((response) => response.json())
@@ -246,3 +243,56 @@ function statOfTheDay(nbaData) {
 //     const randomIndex = getRandomInt(0, statCategories.length - 1);
 //     return statCategories[randomIndex];
 // }
+
+// dropdown menus
+
+async function toggleDropdown(position) {
+    const dropdownContent = document.getElementById(`dropdownItems${position}`);
+    const dropdownBtn = document.getElementById(`dropdown${position}`);
+
+    if (dropdownContent.style.display === 'block') {
+        dropdownContent.style.display = 'none';
+    } else {
+        const response = await fetch('https://alnyb0ty3i.execute-api.us-east-1.amazonaws.com/sportsData');
+        const data = await response.json();
+
+        const players = Object.keys(data).reduce((acc, teamName) => {
+            const roster = data[teamName].roster;
+            Object.keys(roster).forEach(playerName => {
+                if (roster[playerName].position_abbr === position) {
+                    acc.push(playerName);
+                }
+            });
+            return acc;
+        }, []);
+
+        dropdownContent.innerHTML = '';
+        players.forEach(playerName => {
+            const listItem = document.createElement('li');
+            const link = document.createElement('a');
+            link.href = '#';
+            link.textContent = playerName;
+            listItem.appendChild(link);
+            dropdownContent.appendChild(listItem);
+        });
+
+        dropdownContent.style.display = 'block';
+
+        // Focus on the first anchor tag inside the dropdown content
+        const firstLink = dropdownContent.querySelector('a');
+        if (firstLink) {
+            firstLink.focus();
+        }
+    }
+}
+
+window.onclick = function (event) {
+    if (!event.target.matches('.dropdown-btn')) {
+        const allDropdowns = document.querySelectorAll('.dropdown-content');
+        allDropdowns.forEach(dropdown => {
+            dropdown.style.display = 'none';
+        });
+    }
+};
+
+
