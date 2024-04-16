@@ -33,11 +33,14 @@ nav ul li a {
     color: #fff;
     text-decoration: none;
     transition: color 0.3s ease;
+    font-size: 1.8rem;
+    font-weight: bold;
 }
 
 nav ul li a:hover {
     color: #ff0000;
 }
+
 
 .container {
     display: grid;
@@ -81,6 +84,48 @@ a:hover .hooplay-logo-small {
     opacity: .5;
 }
 
+#searchResults {
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+}
+
+#searchResults h3 {
+    color: darkred;
+    font-size: 44px;
+    margin-bottom: 10px;
+}
+
+#searchResults p {
+    margin-bottom: 8px;
+}
+
+#searchResults strong {
+    font-weight: bold;
+}
+
+#searchResults.not-found {
+    color: darkred;
+    font-style: italic;
+}
+
+#clearButton {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color:darkred;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#clearButton:hover {
+    background-color: rgb(97, 22, 22);
+}
+
 .company-introduction {
     grid-column: 2 / span 1;
     grid-row: 3 / span 2;
@@ -111,11 +156,13 @@ a:hover .hooplay-logo-small {
     grid-row: 5 / span 4;
 }
 
+.sponsor-ad1,
 .searchPlayer {
     grid-column: 1 / span 1;
     grid-row: 1 / span 4;
 }
 
+.sponsor-ad2,
 .searchTeam {
     grid-column: 1 / span 1;
     grid-row: 5 / span 4;

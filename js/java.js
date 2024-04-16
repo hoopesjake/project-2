@@ -104,5 +104,52 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 // search player
+function searchJSON() {
+    const searchInput = document.getElementById('searchInput').value.trim().toLowerCase();
+    const searchResultsContainer = document.getElementById('searchResults');
+
+    fetch('https://alnyb0ty3i.execute-api.us-east-1.amazonaws.com/sportsData')
+        .then(response => response.json())
+        .then(data => {
+            let foundPlayer = null;
+            Object.values(data).some(team => {
+                const players = Object.values(team.roster);
+                foundPlayer = players.find(player => player.name.toLowerCase() === searchInput);
+                return foundPlayer;
+            });
+
+
+            searchResultsContainer.innerHTML = '';
+
+            if (foundPlayer) {
+                const { name, height, weight, age, birthplace, jersey, position_full } = foundPlayer;
+                searchResultsContainer.innerHTML = `
+                    <h3>${name}</h3>
+                    <p><strong>Position:</strong> ${position_full}</p>
+                    <p><strong>Jersey Number:</strong> ${jersey}</p>
+                    <p><strong>Height:</strong> ${height}</p>
+                    <p><strong>Weight:</strong> ${weight}</p>
+                    <p><strong>Age:</strong> ${age}</p>
+                    <p><strong>Birthplace:</strong> ${birthplace}</p>
+                `;
+            } else {
+                searchResultsContainer.textContent = 'Player not found.';
+            }
+        });
+}
+
+
 
 // search team
+
+// clear search function
+function clearSearch() {
+    const searchInput = document.getElementById('searchInput');
+    const searchResultsContainer = document.getElementById('searchResults');
+
+    // Clear search input
+    searchInput.value = '';
+
+    // Clear search results container
+    searchResultsContainer.innerHTML = '';
+}
