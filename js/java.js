@@ -104,7 +104,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 // search player
-function searchJSON() {
+function searchJSONplayer() {
     const searchInput = document.getElementById('searchInput').value.trim().toLowerCase();
     const searchResultsContainer = document.getElementById('searchResults');
 
