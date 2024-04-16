@@ -301,3 +301,18 @@ button:hover {
     color: white;
     background-color: rgb(97, 22, 22);
 }
+
+.dropdown-arrow {
+    margin-left: 5px;
+    border: solid black;
+    border-width: 0 2px 2px 0;
+    display: inline-block;
+    padding: 3px;
+    transform: rotate(45deg);
+}
+
+h3 {
+    color: darkred;
+    font-size: 42px;
+    margin-bottom: 10px;
+}

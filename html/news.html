@@ -8,6 +8,7 @@
     <title>Sports Website</title>
     <link rel="stylesheet" href="/css/styles.css">
     <script src="../js/java.js"></script>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
 <body>
@@ -56,32 +57,96 @@
                 <img src="https://a.espncdn.com/i/teamlogos/nba/500/tor.png" alt="tor_raptors">
                 <img src="https://a.espncdn.com/i/teamlogos/nba/500/utah.png" alt="utah_jazz">
                 <img src="https://a.espncdn.com/i/teamlogos/nba/500/wsh.png" alt="wsh_wizards">
-
             </div>
         </div>
     </div>
-
-
-
     <div class="container">
         <section class="company-title">
-            <h1>News</h1>
+            <h1>Stats</h1>
         </section>
         <section class="company-introduction">
-            <h2>News Story Headline</h2>
+            <h2>Statline of the Day</h2>
+            <p>Statline of the day goes here.</p>
         </section>
         <section class="news">
-            <h2>News</h2>
+            <h2>Statline Category 1</h2>
         </section>
         <section class="stats">
-            <h2>News Story</h2>
+            <h2>Statline Category 2</h2>
         </section>
         <section class="statline-of-the-day">
-            <h2>Photo</h2>
+            <h2>Statline Category 3</h2>
         </section>
         <aside class="sponsor-ad1">
-            <h2>Sponsor Ads</h2>
+            <h3>Choose Your Starting 5</h3>
+            <div class="row">
+                <div class="col">
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                            aria-expanded="false" onclick="populateDropdown('PG', 'pgDropdown')">
+                            Point Guard <span class="dropdown-arrow"></span>
+                        </button>
+                        <ul id="pgDropdown" class="dropdown-menu dropdown-menu-end d-none"
+                            aria-labelledby="pgDropdownButton">
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                            aria-expanded="false" onclick="populateDropdown('PF', 'pfDropdown')">
+                            Power Forward <span class="dropdown-arrow"></span>
+                        </button>
+                        <ul id="pfDropdown" class="dropdown-menu dropdown-menu-end d-none"
+                            aria-labelledby="pfDropdownButton"></ul>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                            aria-expanded="false" onclick="populateDropdown('F', 'fDropdown')">
+                            Forward <span class="dropdown-arrow"></span>
+                        </button>
+                        <ul id="fDropdown" class="dropdown-menu dropdown-menu-end d-none"
+                            aria-labelledby="fDropdownButton"></ul>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                            aria-expanded="false" onclick="populateDropdown('SG', 'sgDropdown')">
+                            Shooting Guard <span class="dropdown-arrow"></span>
+                        </button>
+                        <ul id="sgDropdown" class="dropdown-menu dropdown-menu-end d-none"
+                            aria-labelledby="sgDropdownButton">
+                        </ul>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                            aria-expanded="false" onclick="populateDropdown('G', 'gDropdown')">
+                            Guard <span class="dropdown-arrow"></span>
+                        </button>
+                        <ul id="gDropdown" class="dropdown-menu dropdown-menu-end d-none"
+                            aria-labelledby="gDropdownButton">
+                        </ul>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                            aria-expanded="false" onclick="populateDropdown('C', 'cDropdown')">
+                            Center <span class="dropdown-arrow"></span>
+                        </button>
+                        <ul id="cDropdown" class="dropdown-menu dropdown-menu-end d-none"
+                            aria-labelledby="cDropdownButton">
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </aside>
+
+
         <aside class="sponsor-ad2">
             <h2>Sponsor Ads</h2>
         </aside>
