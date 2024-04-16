@@ -47,6 +47,7 @@
 
 
 
+// scroller at top of page
 document.addEventListener('DOMContentLoaded', function () {
     const scrollerInner = document.querySelector('.scroller__inner');
 
@@ -101,3 +102,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 });
+
+// search player
+
+// search team

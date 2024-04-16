@@ -12,19 +12,12 @@ body {
 
 header {
     background-color: darkred;
-    padding: 20px;
+    padding: 0px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     border-bottom: 2px solid darkred;
-    font-family: 'Courier New', Courier, monospace
-}
-
-header h1 {
-    color: #fff;
-    font-size: 36px;
-    font-weight: bold;
-    text-transform: uppercase;
+    font-family: 'Courier New', Courier, monospace;
 }
 
 nav ul {
@@ -60,6 +53,32 @@ nav ul li a:hover {
     grid-column: 2 / span 1;
     grid-row: 1 / span 2;
     font-size: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.company-title {
+    background-color: darkred;
+}
+
+.hooplay-logo {
+    max-width: 50%;
+    height: auto;
+    object-fit: contain;
+    outline: 2px solid white;
+}
+
+.hooplay-logo-small {
+    display: block;
+    width: 10rem;
+    height: auto;
+    transition: opacity 0.3s ease;
+}
+
+a:hover .hooplay-logo-small {
+    opacity: .5;
 }
 
 .company-introduction {
@@ -92,12 +111,12 @@ nav ul li a:hover {
     grid-row: 5 / span 4;
 }
 
-.sponsor-ad1 {
+.searchPlayer {
     grid-column: 1 / span 1;
     grid-row: 1 / span 4;
 }
 
-.sponsor-ad2 {
+.searchTeam {
     grid-column: 1 / span 1;
     grid-row: 5 / span 4;
 }
@@ -110,6 +129,8 @@ aside {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+
+
 section h2,
 aside h2,
 section h1 {
@@ -119,7 +140,10 @@ section h1 {
 }
 
 .sponsor-ads,
-.product-ads {
+.product-ads,
+.searchTeam,
+.searchPlayer
+ {
     background-color: #f9f9f9;
 }
 
@@ -153,4 +177,37 @@ section h1 {
     to {
         transform: translateX(-100%);
     }
+}
+
+h2 {
+    color: darkred;
+}
+
+label {
+    font-weight: bold;
+    color: darkred;
+}
+
+input[type="text"] {
+    width: 70%;
+    padding: 8px;
+    margin-right: 10px;
+    border: 1px solid darkred;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+button {
+    background-color: darkred;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    color: white;
+    background-color: rgb(97, 22, 22);
 }

@@ -13,7 +13,7 @@
 
 <body>
     <header>
-        <h1 class="title">Hoopes & Lay-Ups</h1>
+        <a href="/html/index.html"><img class="hooplay-logo-small" src="/photos/hooplay-logo.png" alt="hooplay-logo"></a>
         <nav>
             <ul>
                 <li><a href="#">Main Page</a></li>
@@ -63,8 +63,7 @@
 
     <div class="container">
         <section class="company-title">
-            <h1>Hoopes & Lay-Ups</h1>
-            <!-- News content goes here -->
+            <img class="hooplay-logo" src="/photos/hooplay-logo.png" alt="hoopes-&-layups-logo">
         </section>
         <section class="company-introduction">
             <h2>Company Introduction</h2>
@@ -82,13 +81,21 @@
             <h2>Statline of the Day</h2>
             <!-- Statline of the day content goes here -->
         </section>
-        <aside class="sponsor-ad1">
-            <h2>Sponsor Ads</h2>
-            <!-- Sponsor ads go here -->
+        <aside class="searchPlayer">
+            <h2>Search Player</h2>
+            <label for="searchInput"></label>
+            <input type="text" id="searchInput" placeholder="Search Player">
+            <button onclick="searchJSON()">Search</button>
+            
+            <div id="searchResults"></div>
         </aside>
-        <aside class="sponsor-ad2">
-            <h2>Sponsor Ads</h2>
-            <!-- Sponsor ads go here -->
+        <aside class="searchTeam">
+            <h2>Search Team</h2>
+            <label for="searchInput"></label>
+            <input type="text" id="searchInput" placeholder="Search Player">
+            <button onclick="searchJSON()">Search</button>
+            
+            <div id="searchResults"></div>
         </aside>
         <aside class="product-ad1">
             <h2>Product Ads</h2>
