@@ -205,6 +205,14 @@ function clearSearchTeam() {
     searchResultsContainerTeam.innerHTML = '';
 }
 
+// dropdown menus
+
+// // Function to get a random stat category for a given team
+// function getRandomStatCategory(randomTeam) {
+//     const statCategories = Object.keys(randomTeam.statistics);
+//     const randomIndex = getRandomInt(0, statCategories.length - 1);
+//     return statCategories[randomIndex];
+// }
 
 // random statline
 fetch('https://alnyb0ty3i.execute-api.us-east-1.amazonaws.com/sportsData')
