@@ -222,7 +222,7 @@ function makePage(nbaData) {
     statlineOfDayElement.innerHTML = `
         <h2>Statline of the Day</h2>
         <div class="team-info">
-            <img class="logo-img" src="${logoUrl}" alt="${team} Logo" class="team-logo">
+            <img src="${logoUrl}" alt="${team} Logo" class="team-logo">
             <p>${team}</p>
         </div>
         <p>${stat}: ${number}</p>`;
@@ -246,6 +246,17 @@ function statOfTheDay(nbaData) {
     return { team: randomTeam.name, stat: statDisplayName, number: statValue };
 }
 
+
+// // Function to get a random stat category for a given team
+// function getRandomStatCategory(randomTeam) {
+//     const statCategories = Object.keys(randomTeam.statistics);
+//     const randomIndex = getRandomInt(0, statCategories.length - 1);
+//     return statCategories[randomIndex];
+// }
+
+// dropdown menus
+
+// Initialize a selected players array
 let selectedPlayers = [];
 
 async function toggleDropdown(position) {
