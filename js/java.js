@@ -222,7 +222,7 @@ function makePage(nbaData) {
     statlineOfDayElement.innerHTML = `
         <h2>Statline of the Day</h2>
         <div class="team-info">
-            <img src="${logoUrl}" alt="${team} Logo" class="team-logo">
+            <img class="logo-img" src="${logoUrl}" alt="${team} Logo" class="team-logo">
             <p>${team}</p>
         </div>
         <p>${stat}: ${number}</p>`;
