@@ -1,5 +1,3 @@
-
-
 // scroller at top of page
 document.addEventListener('DOMContentLoaded', function () {
     const scrollerInner = document.querySelector('.scroller__inner');
@@ -91,60 +89,6 @@ function searchJSONplayer() {
         });
 }
 // search team
-// function searchJSONteam() {
-//     const searchInputTeam = document.getElementById('searchInputTeam').value.trim().toLowerCase();
-//     const searchResultsContainerTeam = document.getElementById('searchResultsTeam');
-
-//     fetch('https://alnyb0ty3i.execute-api.us-east-1.amazonaws.com/sportsData')
-//         .then(response => response.json())
-//         .then(data => {
-//             let foundTeam = null;
-
-//             // Loop through each team object in the data
-//             Object.values(data).some(team => {
-//                 // Check if the current team's name matches the search input
-//                 if (team.name.toLowerCase() === searchInputTeam) {
-//                     foundTeam = team;
-//                     return true; // Stop iteration once a match is found
-//                 }
-//                 return false; // Continue to the next team if no match
-//             });
-
-//             // Clear previous search results
-//             searchResultsContainerTeam.innerHTML = '';
-
-//             if (foundTeam) {
-//                 const { name, abbreviation, logo_light, location, statistics, current_record } = foundTeam;
-
-//                 // Display team information in the search results container
-//                 searchResultsContainerTeam.innerHTML = `
-//                     <h3>${name} (${abbreviation})</h3>
-//                     <img src="${logo_light}" alt="${name} Logo" width="100">
-//                     <p><strong>Location:</strong> ${location}</p>
-//                     <p><strong>Current Record:</strong> ${current_record}</p>
-//                     <h3>Statistics:</h3>
-//                     <ul>
-//                         <li>Average Rebounds: ${statistics.avgRebounds.displayName} - ${statistics.avgRebounds.value}</li>
-//                         <li>Assist To Turnover Ratio: ${statistics.assistTurnoverRatio.displayName} - ${statistics.assistTurnoverRatio.value}</li>
-//                         <li>Fouls Per Game: ${statistics.avgFouls.displayName} - ${statistics.avgFouls.value}</li>
-//                         <li>Free Throw Percentage: ${statistics.freeThrowPct.displayName} - ${statistics.freeThrowPct.value}</li>
-//                         <li>3-Point Field Goal Percentage: ${statistics.threePointPct.displayName} - ${statistics.threePointPct.value}</li>
-//                         <li>Points Per Game: ${statistics.avgPoints.displayName} - ${statistics.avgPoints.value}</li>
-//                         <li>Assists Per Game: ${statistics.avgAssists.displayName} - ${statistics.avgAssists.value}</li>
-//                         <li>Turnovers Per Game: ${statistics.avgTurnovers.displayName} - ${statistics.avgTurnovers.value}</li>
-//                         <li>Field Goal Percentage: ${statistics.fieldGoalPct.displayName} - ${statistics.fieldGoalPct.value}</li>
-//                         <li>Blocks Per Game: ${statistics.avgBlocks.displayName} - ${statistics.avgBlocks.value}</li>
-//                         <li>Steals Per Game: ${statistics.avgSteals.displayName} - ${statistics.avgSteals.value}</li>
-//                     </ul>
-//                 `;
-//             } else {
-//                 // Display message if no matching team is found
-//                 searchResultsContainerTeam.textContent = 'Team not found.';
-//             }
-//         });
-        
-// }
-
 function searchJSONteam() {
     const searchInputTeam = document.getElementById('searchInputTeam').value.trim().toLowerCase();
     const searchResultsContainerTeam = document.getElementById('searchResultsTeam');
@@ -229,10 +173,9 @@ function searchJSONteam() {
                         </table>
                     `;
 
-                // Display the table in the search results container
                 searchResultsContainerTeam.innerHTML = tableHTML;
             } else {
-                // Display message if no matching team is found
+
                 searchResultsContainerTeam.textContent = 'Team not found.';
             }
         });
@@ -261,39 +204,37 @@ function clearSearchTeam() {
 
     searchResultsContainerTeam.innerHTML = '';
 }
-fetch('https://alnyb0ty3i.execute-api.us-east-1.amazonaws.com/sportsData')// makes a variable called "response"
-.then((response) => response.json()) // make a variable called "data"
-.then((data) => makePage(data)); // pass all the data to the funcition makePage
 
+// random statline
+fetch('https://alnyb0ty3i.execute-api.us-east-1.amazonaws.com/sportsData')
+    .then((response) => response.json())
+    .then((data) => makePage(data));
 
 function makePage(nbaData) {
     const { team, stat, number } = statOfTheDay(nbaData);
     const statlineOfDayElement = document.getElementById('statlineOfTheDay');
-    console.log(team);
-    console.log(stat);
-    console.log(number);
     statlineOfDayElement.innerHTML = `
         <h2>Statline of the Day</h2>
         <p>${team}</p>
         <p>${stat}: ${number}</p>`;
-
 }
 
-// Function to get a random integer within a range
 function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-// Function to get a random team
 function statOfTheDay(nbaData) {
     const teamNames = Object.keys(nbaData);
     const randomTeamName = teamNames[getRandomInt(0, teamNames.length - 1)];
-    let randomTeam = nbaData[randomTeamName];
+    const randomTeam = nbaData[randomTeamName];
     const statCategories = Object.keys(randomTeam.statistics);
     const randomIndex = getRandomInt(0, statCategories.length - 1);
-    let randomStat = statCategories[randomIndex];
-    let randomStatValue = randomTeam.statistics[randomStat].value;
-    return { team: randomTeam.name, stat: randomStat, number: randomStatValue };
+    const randomStatKey = statCategories[randomIndex];
+    const randomStat = randomTeam.statistics[randomStatKey];
+    const statDisplayName = randomStat.displayName;
+    const statValue = randomStat.value;
+
+    return { team: randomTeam.name, stat: statDisplayName, number: statValue };
 }
 
 // // Function to get a random stat category for a given team
@@ -302,3 +243,103 @@ function statOfTheDay(nbaData) {
 //     const randomIndex = getRandomInt(0, statCategories.length - 1);
 //     return statCategories[randomIndex];
 // }
+
+// dropdown menus
+
+// Initialize a selected players array
+let selectedPlayers = [];
+
+async function toggleDropdown(position) {
+    const dropdownContent = document.getElementById(`dropdownItems${position}`);
+    const dropdownBtn = document.getElementById(`dropdown${position}`);
+
+    if (dropdownContent.style.display === 'block') {
+        dropdownContent.style.display = 'none';
+    } else {
+        const response = await fetch('https://alnyb0ty3i.execute-api.us-east-1.amazonaws.com/sportsData');
+        const data = await response.json();
+
+        const players = Object.keys(data).reduce((acc, teamName) => {
+            const roster = data[teamName].roster;
+            Object.keys(roster).forEach(playerName => {
+                if (roster[playerName].position_abbr === position) {
+                    acc.push({ name: playerName, position: roster[playerName].position_full });
+                }
+            });
+            return acc;
+        }, []);
+
+        dropdownContent.innerHTML = '';
+        players.forEach(player => {
+            const listItem = document.createElement('li');
+            const link = document.createElement('a');
+            link.href = '#';
+            link.textContent = `${player.name}`;
+            link.addEventListener('click', () => addPlayer(player));
+            listItem.appendChild(link);
+            dropdownContent.appendChild(listItem);
+        });
+
+        dropdownContent.style.display = 'block';
+
+        // Focus on the first anchor tag inside the dropdown content
+        const firstLink = dropdownContent.querySelector('a');
+        if (firstLink) {
+            firstLink.focus();
+        }
+    }
+}
+
+// Function to add a player to the selected list
+function addPlayer(player) {
+    if (selectedPlayers.length < 5) {
+        selectedPlayers.push(player);
+        updateSelectedPlayersDisplay();
+    } else {
+        alert('You can only select up to 5 players.');
+    }
+}
+
+// Function to update the display of selected players
+function updateSelectedPlayersDisplay() {
+    const selectedPlayersSection = document.querySelector('.choose-your-five');
+    selectedPlayersSection.innerHTML = '<h1>Your Starting 5</h1>';
+    selectedPlayers.forEach(player => {
+        const playerInfo = document.createElement('p');
+        playerInfo.textContent = `${player.name} - ${player.position}`;
+        selectedPlayersSection.appendChild(playerInfo);
+    });
+}
+
+window.onclick = function (event) {
+    if (!event.target.matches('.dropdown-btn')) {
+        const allDropdowns = document.querySelectorAll('.dropdown-content');
+        allDropdowns.forEach(dropdown => {
+            dropdown.style.display = 'none';
+        });
+    }
+};
+
+// Function to update the display of selected players
+function updateSelectedPlayersDisplay() {
+    const selectedPlayersSection = document.querySelector('.choose-your-five');
+
+    // Create the header element
+    const header = document.createElement('h4');
+    header.textContent = 'Your Starting 5';
+
+    // Clear existing content and append the header
+    selectedPlayersSection.innerHTML = '';
+    selectedPlayersSection.appendChild(header);
+
+    // Append each selected player info
+    selectedPlayers.forEach(player => {
+        const playerInfo = document.createElement('p');
+        playerInfo.textContent = `${player.name} - ${player.position}`;
+        selectedPlayersSection.appendChild(playerInfo);
+    });
+}
+
+
+
+

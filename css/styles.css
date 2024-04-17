@@ -220,7 +220,11 @@ aside {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-
+h4 {
+    color: white;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace
+}
 
 section h2,
 aside h2,
@@ -300,4 +304,85 @@ button {
 button:hover {
     color: white;
     background-color: rgb(97, 22, 22);
+}
+
+
+
+h3 {
+    color: darkred;
+    font-size: 42px;
+    margin-bottom: 10px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+}
+
+
+/* dropdown menu styling */
+.dropdown {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.dropdown-btn {
+    background-color: darkred;
+    color: white;
+    padding: 12px;
+    font-size: 20px;
+    border: none;
+    cursor: pointer;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    overflow-y: auto;
+    max-height: 200px;
+}
+
+.dropdown-content a {
+    color: darkred;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.choose-your-five {
+    grid-column: 2 / span 1;
+    grid-row: 1 / span 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    overflow: hidden;
+    max-width: 100%;
+    height: 500px;
+    background-color: darkred;
+    color: white;
+    position: relative;
+    padding: 20px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#selectedPlayers {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+#selectedPlayers li {
+    margin-bottom: 10px;
 }
