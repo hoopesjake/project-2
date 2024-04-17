@@ -367,12 +367,17 @@ h3 {
     align-items: center;
     overflow: hidden;
     max-width: 100%;
-    height: 500px;
+    height: 340px;
     background-color: darkred;
-    color: white;
+    color: rgb(255, 255, 255);
     position: relative;
     padding: 20px;
     font-family: 'Courier New', Courier, monospace;
+}
+
+.choose-your-five-dropdown {
+    grid-column: 1 / span 1;
+    grid-row: 1 / span 2;
 }
 
 #selectedPlayers {
@@ -383,4 +388,30 @@ h3 {
 
 #selectedPlayers li {
     margin-bottom: 10px;
+}
+
+/* animation for logo on random statline */
+@keyframes scaleAnimation {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+
+    75% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.logo-img {
+    transition: transform 0.3s ease;
+}
+
+.logo-img:hover {
+    animation: scaleAnimation 0.5s ease;
 }
