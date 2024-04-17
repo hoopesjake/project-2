@@ -351,5 +351,3 @@ function updateSelectedPlayersDisplay() {
 }
 
 
-
-
