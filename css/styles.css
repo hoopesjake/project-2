@@ -476,3 +476,22 @@ form button:active {
 .logo-img:hover {
     animation: scaleAnimation 0.5s ease;
 }
+
+.players {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(2, 1fr);
+    gap: 20px;
+    padding: 20px;
+    text-align: center;
+    font-size: 2rem;
+    position: relative;
+}
+
+.players h6 {
+    text-align: center;
+    padding: 10px;
+    margin: 10px;
+
+
+}
