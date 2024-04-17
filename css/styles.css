@@ -389,29 +389,3 @@ h3 {
 #selectedPlayers li {
     margin-bottom: 10px;
 }
-
-/* animation for logo on random statline */
-@keyframes scaleAnimation {
-    0% {
-        transform: scale(1);
-    }
-
-    50% {
-        transform: scale(1.2);
-    }
-
-    75% {
-        transform: scale(1.2);
-    }
-    100% {
-        transform: scale(1);
-    }
-}
-
-.logo-img {
-    transition: transform 0.3s ease;
-}
-
-.logo-img:hover {
-    animation: scaleAnimation 0.5s ease;
-}

@@ -128,47 +128,47 @@ function searchJSONteam() {
                             </tr>
                             <tr>
                                 <td>${statistics.avgRebounds.displayName}</td>
-                                <td>${statistics.avgRebounds.value}</td>
+                                <td>${statistics.avgRebounds.value.toFixed(1)}</td>
                             </tr>
                             <tr>
                                 <td>${statistics.assistTurnoverRatio.displayName}</td>
-                                <td>${statistics.assistTurnoverRatio.value}</td>
+                                <td>${statistics.assistTurnoverRatio.value.toFixed(1)}</td>
                             </tr>
                             <tr>
                                 <td>${statistics.avgFouls.displayName}</td>
-                                <td>${statistics.avgFouls.value}</td>
+                                <td>${statistics.avgFouls.value.toFixed(1)}</td>
                             </tr>
                             <tr>
                                 <td>${statistics.freeThrowPct.displayName}</td>
-                                <td>${statistics.freeThrowPct.value}</td>
+                                <td>${statistics.freeThrowPct.value.toFixed(1)}</td>
                             </tr>
                             <tr>
                                 <td>${statistics.threePointPct.displayName}</td>
-                                <td>${statistics.threePointPct.value}</td>
+                                <td>${statistics.threePointPct.value.toFixed(1)}</td>
                             </tr>
                             <tr>
                                 <td>${statistics.avgPoints.displayName}</td>
-                                <td>${statistics.avgPoints.value}</td>
+                                <td>${statistics.avgPoints.value.toFixed(1)}</td>
                             </tr>
                             <tr>
                                 <td>${statistics.avgAssists.displayName}</td>
-                                <td>${statistics.avgAssists.value}</td>
+                                <td>${statistics.avgAssists.value.toFixed(1)}</td>
                             </tr>
                             <tr>
                                 <td>${statistics.avgTurnovers.displayName}</td>
-                                <td>${statistics.avgTurnovers.value}</td>
+                                <td>${statistics.avgTurnovers.value.toFixed(1)}</td>
                             </tr>
                             <tr>
                                 <td>${statistics.fieldGoalPct.displayName}</td>
-                                <td>${statistics.fieldGoalPct.value}</td>
+                                <td>${statistics.fieldGoalPct.value.toFixed(1)}</td>
                             </tr>
                             <tr>
                                 <td>${statistics.avgBlocks.displayName}</td>
-                                <td>${statistics.avgBlocks.value}</td>
+                                <td>${statistics.avgBlocks.value.toFixed(1)}</td>
                             </tr>
                             <tr>
                                 <td>${statistics.avgSteals.displayName}</td>
-                                <td>${statistics.avgSteals.value}</td>
+                                <td>${statistics.avgSteals.value.toFixed(1)}</td>
                             </tr>
                         </table>
                     `;
@@ -241,7 +241,7 @@ function statOfTheDay(nbaData) {
     const randomStatKey = statCategories[randomIndex];
     const randomStat = randomTeam.statistics[randomStatKey];
     const statDisplayName = randomStat.displayName;
-    const statValue = randomStat.value;
+    const statValue = randomStat.value.toFixed(1);
 
     return { team: randomTeam.name, stat: statDisplayName, number: statValue };
 }
