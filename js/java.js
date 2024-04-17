@@ -213,9 +213,18 @@ fetch('https://alnyb0ty3i.execute-api.us-east-1.amazonaws.com/sportsData')
 function makePage(nbaData) {
     const { team, stat, number } = statOfTheDay(nbaData);
     const statlineOfDayElement = document.getElementById('statlineOfTheDay');
+
+    // Get the corresponding team object from the NBA data
+    const teamObject = nbaData[team];
+    const logoUrl = teamObject.logo_light; // Use the light logo URL for display
+
+    // Create HTML content including the team logo
     statlineOfDayElement.innerHTML = `
         <h2>Statline of the Day</h2>
-        <p>${team}</p>
+        <div class="team-info">
+            <img src="${logoUrl}" alt="${team} Logo" class="team-logo">
+            <p>${team}</p>
+        </div>
         <p>${stat}: ${number}</p>`;
 }
 
@@ -236,6 +245,7 @@ function statOfTheDay(nbaData) {
 
     return { team: randomTeam.name, stat: statDisplayName, number: statValue };
 }
+
 
 // // Function to get a random stat category for a given team
 // function getRandomStatCategory(randomTeam) {
