@@ -350,6 +350,44 @@ function updateSelectedPlayersDisplay() {
     });
 }
 
+// modal button from sumbit with message:
+
+document.addEventListener('DOMContentLoaded', function () {
+    const subscribeForm = document.getElementById('subscribeForm');
+    const modal = document.getElementById('modal');
+    const submitButton = document.getElementById('submitButton');
+    const closeModalButton = document.getElementById('closeModalButton');
+
+    submitButton.addEventListener('click', function () {
+        showModal();
+    });
+
+    closeModalButton.addEventListener('click', function () {
+        closeModal();
+    });
+
+    subscribeForm.addEventListener('submit', function (event) {
+        event.preventDefault(); // Prevent default form submission
+        showModal();
+    });
+
+    function showModal() {
+        // Display the modal
+        modal.style.display = 'block';
+
+        // Reset the form after a short delay to ensure the modal is displayed
+        setTimeout(function () {
+            subscribeForm.reset(); // Reset form fields
+        }, 100);
+    }
+
+    function closeModal() {
+        modal.style.display = 'none';
+    }
+});
+
+
+
 
 
 
