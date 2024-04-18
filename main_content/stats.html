@@ -1,4 +1,4 @@
-<!-- Spencer and Jake -->
+<!-- jsut checking -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,19 +9,20 @@
     <title>Sports Website</title>
     <link rel="stylesheet" href="/css/styles.css">
     <script src="../js/java.js"></script>
-
 </head>
 
 <body>
     <header>
-        <a href="/html/index.html"><img class="hooplay-logo-small" src="/photos/hooplay-logo.png"
+        <a href="/main_content/index.html"><img class="hooplay-logo-small" src="/photos/hooplay-logo.png"
                 alt="hooplay-logo"></a>
         <nav>
-            <ul>
-                <li><a href="#">Main Page</a></li>
-                <li><a href="/html/stats.html">Statistics</a></li>
-                <li><a href="/html/players.html">Players</a></li>
-            </ul>
+            <h2>
+                <ul>
+                    <li><a href="/main_content/index.html">Main Page</a></li>
+                    <li><a href="#">Statistics</a></li>
+                    <li><a href="/main_content/players.html">Players</a></li>
+                </ul>
+            </h2>
         </nav>
     </header>
 
@@ -92,64 +93,39 @@
         </div>
     </div>
 
+
     <div class="container">
-        <section class="company-title">
-            <img class="hooplay-logo" src="/photos/hooplay-logo.png" alt="hoopes-&-layups-logo">
+        <section class="statline-of-the-day" id="statlineOfTheDay">
+            <h2>Statline of The Day</h2>
         </section>
-        <section class="company-introduction">
-            <h2>Company Introduction</h2>
-            <p>Welcome to Hoopes & Lay-Ups, your source for the latest sports statistics and hot takes. Jake Hoopes and
-                Spencer Layton founded Hoopes & Lay-Ups to generate buzz and conduct surveys on hot topics. Please
-                subscribe to receive frequent news and updates.</p>
+        <section class="top-5-teams">
+            <h2>Top 5 Teams</h2>
+            <ol>
+                <h6>1. Boston Celtics<br>(62-16)</h6>
+                <h6>2. Denver Nuggets<br>(54-24)</h6>
+                <h6>3. Minnesota Timberwolves<br>(54-24)</h6>
+                <h6>4. Oklahoma City Thunder<br>(53-25)</h6>
+                <h6>5. Los Angeles Clippers<br>(50-28)</h6>
+            </ol>
         </section>
-        <section class="sign-up">
-            <h2>Subscribe Today!</h2>
-            <form>
-                <label for="firstname">First Name:</label>
-                <input type="text" id="firstname" name="firstname" placeholder="First Name" required>
-
-                <label for="lastname">Last Name:</label>
-                <input type="text" id="lastname" name="lastname" placeholder="Last Name" required>
-
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" placeholder="Email" required>
-
-                <label for="phone">Number:</label>
-                <input type="tel" id="phone" name="phone" placeholder="(123) 456-7890">
-
-                <label for="message">MJ or LeBron? Why?:</label>
-                <textarea id="message" name="message" rows="4" placeholder="Type here"></textarea>
-                
-                <button type="button" id="submitButton" class="submit">Submit</button>
-            </form>
+        <section class="top-5-players">
+            <h2>Top 5 Players</h2>
+            <ol>
+                <h6>1. Nikola Jokic<br>(DEN Nuggets)</h6>
+                <h6>2. Shai Gilgeous-Alexander<br>(OKC Thunder)</h6>
+                <h6>3. Luka Doncic<br>(DAL Mavericks)</h6>
+                <h6>4. Giannis Antetokounmpo<br>(MIL Bucks)</h6>
+                <h6>5. Jayson Tatum<br>(BOS Celtics)</h6>
+            </ol>
         </section>
-
-        <!-- Modal -->
-        <div id="modal" class="modal">
-            <div class="modal-content">
-                <h3>Thank You for Subscribing!</h3>
-                <p>We appreciate your subscription. Stay tuned for updates!</p>
-                <button id="closeModalButton" class="submit">Close</button>
-            </div>
+        <section class="banner">
+            <h1>Watch the top 100 plays from 2024!</h1>
+        </section>
+    </div>
+    <div class="video-background">
+        <div class="video-foreground">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/ua-xR4SFXAs?si=99OkkwgbfwYcW-Qu&autoplay=1&mute=1&controls=0&showinfo=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </div>
-        <aside class="searchPlayer">
-            <h2>Search Players</h2>
-            <label for="searchInputPlayer"></label>
-            <input type="text" id="searchInputPlayer" placeholder="Search Player">
-            <button onclick="searchJSONplayer()">Search</button>
-
-            <div id="searchResultsPlayer"></div>
-            <button id="clearButton" onclick="clearSearchPlayer()">Clear</button>
-        </aside>
-        <aside class="searchTeam">
-            <h2>Search Teams</h2>
-            <label for="searchInputTeam"></label>
-            <input type="text" id="searchInputTeam" placeholder="Search Team">
-            <button onclick="searchJSONteam()">Search</button>
-
-            <div id="searchResultsTeam"></div>
-            <button id="clearButton" onclick="clearSearchTeam()">Clear</button>
-        </aside>
     </div>
 </body>
 
