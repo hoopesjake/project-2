@@ -94,6 +94,7 @@ a:hover .hooplay-logo-small {
     grid-column: 2 / span 1;
     grid-row: 1 / span 3;
     margin-bottom: 0px;
+    font-weight: bold;
 }
 
 .sign-up {
@@ -601,4 +602,32 @@ form button:active {
     position: absolute;
     top: 0;
     left: 0;
+  }
+
+  .top-5-teams h6, .top-5-players h6 {
+    margin: 10px;
+    padding: 15px;
+    font-size: 2rem;
+  }
+
+  .top-5-teams {
+    grid-column: 1 / span 1;
+    grid-row: 1 / span 3;
+  }
+
+  .top-5-players {
+    grid-column: 3 / span 1;
+    grid-row: 1 / span 3;
+  }
+
+  .banner {
+    grid-column: 1 / span 3;
+    grid-row: 4 / span 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .banner h1 {
+    font-size: 5rem;
   }
