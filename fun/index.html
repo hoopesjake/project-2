@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escape Room Locks</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            /* Align items to the start */
+            min-height: 100vh;
+            /* Ensure minimum height for the body */
+            flex-direction: column;
+            /* Stack content vertically */
+            overflow-y: auto;
+            /* Allow vertical scrolling */
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            width: 100%;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .lock {
+            background-color: #e0e0e0;
+            padding: 40px;
+            border-radius: 20px;
+            border: 5px solid #555;
+            position: relative;
+            width: 30%;
+            min-width: 200px;
+            margin: 20px;
+            text-align: center;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+            border: 2px solid #555;
+            border-radius: 10px;
+        }
+
+        .feedback {
+            font-weight: bold;
+            color: green;
+            font-size: 1.1em;
+        }
+
+        .feedback.incorrect {
+            color: red;
+        }
+
+        .previous-guesses {
+            font-size: 0.9em;
+            color: #777;
+        }
+
+        .lock:before {
+            content: "";
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 50px;
+            background-color: #555;
+            border-radius: 40px 40px 0 0;
+        }
+
+        .lock:after {
+            content: "";
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 15px;
+            background-color: #e0e0e0;
+            border: 3px solid #555;
+            border-radius: 8px;
+        }
+
+        button {
+            padding: 12px 20px;
+            font-size: 1.1em;
+            border: none;
+            background-color: #555;
+            color: white;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #333;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                width: 100%;
+                /* Full width on small screens */
+            }
+
+            .lock {
+                width: 90%;
+                /* Adjust width for mobile */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .lock {
+                width: 95%;
+                /* Even smaller width on very small screens */
+                padding: 30px;
+                /* Adjust padding */
+            }
+
+            button,
+            input {
+                font-size: 1em;
+                /* Slightly smaller font size */
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Lock 1 -->
+        <div class="lock">
+            <label for="lock1">Lock 1:</label>
+            <input type="text" id="lock1" placeholder="Enter answer" onkeydown="submitOnEnter(event, 1)">
+            <button onclick="checkAnswer(1)">Submit Answer</button>
+            <div id="feedback1" class="feedback"></div>
+            <div id="previous1" class="previous-guesses"></div>
+        </div>
+
+        <!-- Lock 2 -->
+        <div class="lock">
+            <label for="lock2">Lock 2:</label>
+            <input type="text" id="lock2" placeholder="Enter answer" onkeydown="submitOnEnter(event, 2)">
+            <button onclick="checkAnswer(2)">Submit Answer</button>
+            <div id="feedback2" class="feedback"></div>
+            <div id="previous2" class="previous-guesses"></div>
+        </div>
+
+        <!-- Lock 3 -->
+        <div class="lock">
+            <label for="lock3">Lock 3:</label>
+            <input type="text" id="lock3" placeholder="Enter answer" onkeydown="submitOnEnter(event, 3)">
+            <button onclick="checkAnswer(3)">Submit Answer</button>
+            <div id="feedback3" class="feedback"></div>
+            <div id="previous3" class="previous-guesses"></div>
+        </div>
+
+        <!-- Lock 4 -->
+        <div class="lock">
+            <label for="lock4">Lock 4:</label>
+            <input type="text" id="lock4" placeholder="Enter answer" onkeydown="submitOnEnter(event, 4)">
+            <button onclick="checkAnswer(4)">Submit Answer</button>
+            <div id="feedback4" class="feedback"></div>
+            <div id="previous4" class="previous-guesses"></div>
+        </div>
+
+        <!-- Lock 5 -->
+        <div class="lock">
+            <label for="lock5">Lock 5:</label>
+            <input type="text" id="lock5" placeholder="Enter answer" onkeydown="submitOnEnter(event, 5)">
+            <button onclick="checkAnswer(5)">Submit Answer</button>
+            <div id="feedback5" class="feedback"></div>
+            <div id="previous5" class="previous-guesses"></div>
+        </div>
+
+        <!-- Lock 6 -->
+        <div class="lock">
+            <label for="lock6">Lock 6:</label>
+            <input type="text" id="lock6" placeholder="Enter answer" onkeydown="submitOnEnter(event, 6)">
+            <button onclick="checkAnswer(6)">Submit Answer</button>
+            <div id="feedback6" class="feedback"></div>
+            <div id="previous6" class="previous-guesses"></div>
+        </div>
+    </div>
+
+    <script>
+        const answers = ["7373", "6537", ["up down right right left down", "updownrightrightleftdown", "up, down, right, right, left, down" ], "2469", "5691", "2024"]; // Array for Lock 3 has two possible answers
+
+            function checkAnswer(lockNumber) {
+                const userAnswer = document.getElementById('lock' + lockNumber).value.trim().toLowerCase();
+                const feedback = document.getElementById('feedback' + lockNumber);
+                const previous = document.getElementById('previous' + lockNumber);
+
+                let isCorrect = false;
+
+                if (Array.isArray(answers[lockNumber - 1])) {
+                    // If there are multiple correct answers, check if userAnswer is in the array
+                    isCorrect = answers[lockNumber - 1].includes(userAnswer);
+                } else {
+                    // Single correct answer case
+                    isCorrect = userAnswer === answers[lockNumber - 1].toLowerCase();
+                }
+
+                if (isCorrect) {
+                    feedback.textContent = "Correct! Lock unlocked!";
+                    feedback.classList.remove('incorrect');
+                    previous.textContent = ""; // Clear previous guesses
+                } else {
+                    feedback.textContent = "Incorrect! Try again.";
+                    feedback.classList.add('incorrect');
+
+                    // Clear input field
+                    document.getElementById('lock' + lockNumber).value = '';
+
+                    // Add guess to previous guesses
+                    previousGuesses[lockNumber - 1].push(userAnswer);
+                    previous.textContent = "Previous guesses: " + previousGuesses[lockNumber - 1].join(', ');
+                }
+            }
+
+        // Function to submit when Enter key is pressed
+        function submitOnEnter(event, lockNumber) {
+            if (event.key === 'Enter') {
+                checkAnswer(lockNumber);
+            }
+        }
+    </script>
+</body>
+
+</html>
